@@ -124,3 +124,57 @@ Installing devDependencies (yarn):
 ```
 When the installation is complete, open tsconfig.json and you'll see it populated with values .
 
+
+# Understanding tsconfig.json in Typescript
+The tsconfig.json is the main piece of configuration for TypeScript. This file contains all the compiler options and settings for the TypeScript compiler to know exactly how you want your code transpiled. Here's a structure, which the typical tsconfig.json should have:
+
+#### Compiler Options
+- target : It points to the version of JavaScript that the TypeScript code compiles into. Standard settings are "es5" and "es6".
+``` "target": "es5" ```
+
+- lib: This specifies the list of library files to include in the compilation. Most of the time, this will be "dom," "dom. iterable", and "next" together for a web project.
+``` "lib": ["dom", "dom.iterable", "esnext"] ```
+
+- allowJs: Allows JavaScript file compilation. This may be helpful in introducing TypeScript gradually into an existing JavaScript codebase.
+   ``` "allowJs": true ```
+
+- skipLibCheck: This will avoid the checking of declaration files (.d.ts) and would consequently help in faster compiling.
+   ``` "skipLibCheck": true ```
+
+- strict: Enable strict option checking. This option, if true, will enable strict rules by which your code will become more resilient.
+   ``` "strict": false ```
+
+- forceConsistentCasingInFileNames: Ensures that filenames are consistently cased const.
+   ``` "forceConsistentCasingInFileNames": true ```
+
+- noEmit: The output files are not emitted by the compiler. This is a pretty useful option for projects where we are only concerned with type checking and do not want to take a look at the final JavaScript file.
+``` "noEmit": true ```
+
+- esModuleInterop: This sets up interoperability between CommonJS and ES Modules; thus, one can import files in CommonJS format with the ES Module syntax.
+    ```  "esModuleInterop": true ```
+
+- module: Defines how the module code should be generated. The most common values, appropriate for modern projects, are these, which include esnext.
+``` "module": "esnext" ```
+
+- moduleResolution: Defines module resolution strategy: The preferred value for a Node.js application is "node."
+``` "moduleResolution": "node" ```
+
+- resolveJsonModule: Enables import for JSON modules in some scenarios, e.g., while working with the configuration file or in a different manner.
+``` "resolveJsonModule": true ```
+
+- isolatedModules: Treat each file as a standalone module. This is likely to help in making the build faster. ```json
+``` "isolatedModules": true ```
+
+
+- jsx: Code generation method of the JSX. When set to preserve, JSX is kept as is and not rounded on Next.js to handle it.
+
+``` "jsx": "preserve" ```
+
+- Include and Exclude
+- include: Specifies the files or directories to include in the compilation. Typically, this includes next-env.d.ts and all .ts and .tsx files.
+
+``` "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"] ```
+
+- exclude: Specifies the files or directories to exclude from the compilation. This typically includes node_modules to avoid unnecessary type checking of external libraries.
+
+``` "exclude": ["node_modules"] ```
