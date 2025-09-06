@@ -1,1 +1,14 @@
 page.tsx is server component . you can not use hooks here.
+
+
+export default function Home(){
+const[click,setClick]=useState(0);
+  return(
+    <div className="grid grid-rows-[20px_1fr_20px] items-center">
+      <h1>This is our homepage at root route/root level</h1>
+    </div>
+    );
+}
+
+//it is root directory which is inside app
+//it will throw error
