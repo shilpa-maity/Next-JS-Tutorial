@@ -1,0 +1,8 @@
+#src/app/profile/page.tsx
+
+"use client"
+function profile() {
+    return <h1>This is Profile Component-client</h1>
+}
+
+export default profile;
