@@ -1,0 +1,28 @@
+src/app/products/page.tsx
+
+import Link from "next/link";
+function products() {
+    const products=[
+        {id:1,name:"Mobile",price:5000},
+        {id:2,name:"Laptop",price:6000},
+        {id:3,name:"Watch",price:15000}
+    ]
+
+    return (  
+        <div className="p-4">
+            <h1 className="text-2xl font-bold mb-4">Products</h1>
+            <div className="grid gap-4">
+                {products.map(product=>(
+                    <div key={product.id} className="border p-4 rounded">
+                        <h2>{product.name}</h2>
+                        <p>${product.price}</p>
+                        <Link href={`/products/${product.id}`}>View Details</Link>
+
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+export default products;
