@@ -1,0 +1,1 @@
+page.tsx is server component . you can not use hooks here.
