@@ -1,0 +1,8 @@
+src/app/profile/account/page.tsx
+
+
+function account() {
+    return <h1 className="text-2xl font-bold">This is Account Page</h1>;
+}
+
+export default account;
